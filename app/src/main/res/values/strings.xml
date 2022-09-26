@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Crud</string>
+    <string name="btnSaveUser_txt">Save User</string>
+    <string name="swIsActive">User Active</string>
+    <string name="edtPassWord_hint">Password</string>
+    <string name="edtEmail_hint">Email</string>
+    <string name="edtName_hint">Name</string>
+    <string name="error_addAll">Please, put all information!</string>
+    <string name="addUserSuccess">User added successful!</string>
+    <string name="btnEditUser_txt">Edit User</string>
+    <string name="etId_hint">Id</string>
+</resources>
