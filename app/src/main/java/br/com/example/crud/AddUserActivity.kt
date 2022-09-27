@@ -7,7 +7,6 @@ import android.widget.Toast
 import br.com.example.crud.databinding.ActivityAddUserBinding
 import br.com.example.crud.model.User
 import br.com.example.crud.repository.UserRepository
-import com.google.android.material.snackbar.Snackbar
 
 
 class AddUserActivity : AppCompatActivity() {
@@ -27,8 +26,14 @@ class AddUserActivity : AppCompatActivity() {
 
             if (name.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty()){
                 val user = User(name, email, password, isActivity)
-                UserRepository.addUser(user)
-                Snackbar.make(view, getString(R.string.addUserSuccess), Snackbar.LENGTH_SHORT).show()
+
+                if(UserRepository.addUser(user)){
+                    Toast.makeText(baseContext, getString(R.string.addUserSuccess), Toast.LENGTH_SHORT).show()
+                }else{
+                    Toast.makeText(baseContext, getString(R.string.error_addUser), Toast.LENGTH_SHORT).show()
+                }
+
+
             }else Toast.makeText(baseContext, getString(R.string.error_addAll), Toast.LENGTH_SHORT).show()
         }
     }

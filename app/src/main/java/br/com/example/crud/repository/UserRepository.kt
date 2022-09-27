@@ -7,8 +7,15 @@ class UserRepository {
     companion object{
         private val db = mutableListOf<User>()
 
-        fun addUser(user: User){
-            db.add(user)
+        fun addUser(user: User): Boolean{
+            val filtered = db.filter { it.email == user.email }
+            return if(filtered.isNotEmpty()){
+                false
+            }else {
+                db.add(user)
+                true
+            }
+
         }
 
         fun showUser(user: User): String{

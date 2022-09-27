@@ -6,6 +6,7 @@
     <string name="edtEmail_hint">Email</string>
     <string name="edtName_hint">Name</string>
     <string name="error_addAll">Please, put all information!</string>
+    <string name="error_addUser">Error to add user on data base!</string>
     <string name="addUserSuccess">User added successful!</string>
     <string name="btnEditUser_txt">Edit User</string>
     <string name="etId_hint">Id</string>
