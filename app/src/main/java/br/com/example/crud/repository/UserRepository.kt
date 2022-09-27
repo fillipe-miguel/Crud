@@ -1,29 +1,20 @@
 package br.com.example.crud.repository
 
+import android.content.ContentValues
+import android.content.Context
+import br.com.example.crud.model.APPDatabase
 import br.com.example.crud.model.User
 
-class UserRepository {
+class UserRepository(context: Context) {
+    private val db = APPDatabase(context).readableDatabase
 
-    companion object{
-        private val db = mutableListOf<User>()
+    fun addUser(user: User): Long {
+        val content = ContentValues()
+        content.put("name", user.name)
+        content.put("email", user.email)
+        content.put("password", user.password)
+        content.put("isActive", user.isActive)
 
-        fun addUser(user: User): Boolean{
-            val filtered = db.filter { it.email == user.email }
-            return if(filtered.isNotEmpty()){
-                false
-            }else {
-                db.add(user)
-                true
-            }
-
-        }
-
-        fun showUser(user: User): String{
-           return db[db.indexOf(user)].toString()
-        }
-
-        fun showAll(): MutableList<User> {
-            return db
-        }
+        return db.insert("users", null, content)
     }
 }
