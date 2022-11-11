@@ -17,4 +17,19 @@ class UserRepository(context: Context) {
 
         return db.insert("users", null, content)
     }
+
+    fun updateUser(userId: Int, newUser: User){
+        val content = ContentValues()
+        content.put("name", newUser.name)
+        content.put("email", newUser.email)
+        content.put("password", newUser.password)
+        content.put("isActive", newUser.isActive)
+
+
+        db.update("users", content, userId.toString(), )
+    }
+
+    fun deleteUser(userId: Int){
+
+    }
 }
